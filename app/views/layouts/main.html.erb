@@ -19,8 +19,7 @@
 				  <div id = "logo">
 				    The Alexander Cottage
 				  </div>
-				  
-					<!-- begin top navigation -->
+
 					<div class="topnav">
 						<ul>
 							<li><%= link_to 'Calendar',  '/' %></li><li>--</li>
@@ -28,11 +27,7 @@
 							<li><%= link_to 'Galleries', '/gallery' %></li>
 						</ul>
 					</div>
-					<div class="clear"></div>
-
-						<!-- begin the login/account corner -->
-
-						<!-- for non-logged in user -->					
+					<div class="clear"></div>		
 						<%  unless logged_in? %>					
   						<div id="login">
   							<%= link_to 'Login', login_url  %>
@@ -40,8 +35,6 @@
   							<%= link_to 'Sign up', signup_url %>
   						</div>
 						<% else %>
-  						<!-- end of login -->										
-  						<!-- for logged in users -->	
   						<div id="account">									
   							Welcome <%= current_user.to_s %>
   							<span class="space">&nbsp;</span>
@@ -49,23 +42,19 @@
   							<br/>
   						</div>				
 						<% end %>
-						<!-- end of login/account -->
 						<div class="clear"></div>
 
             <div id = "title"><%= get_page_title %></div>
             <div class = "clear"></div>
             
-						<!-- begin left column -->
 						<div id="main">
 							<%= yield %>
 						</div>
 						<br />
 						<div class="clear"></div>
 						<div id="copy">&copy; Copyright 2008 Gibnai Productions.  Party on.</div>
-						<!-- end wrapper and striping divs -->
 					</div>
 				</div>
 			</div>
-			<!-- end wrapper and striping divs -->
 		</body>
 		</html>
