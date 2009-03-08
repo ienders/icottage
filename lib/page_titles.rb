@@ -24,7 +24,7 @@ module PageTitles
 
     def set_page_title(add_this)
       get_page_title
-      @page_title = "#{add_this}"
+      @page_title = ["#{add_this}"]
     end
   end 
 end
