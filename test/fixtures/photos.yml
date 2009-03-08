@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  gallery_id: 1
+  filename: MyString
+  width: 1
+  height: 1
+
+two:
+  gallery_id: 1
+  filename: MyString
+  width: 1
+  height: 1

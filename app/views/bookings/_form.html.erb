@@ -1,0 +1,21 @@
+<div class = "bordered">
+  <h1>Create a New Booking</h1>
+
+  <% form_for @booking, :method => 'post' do |f| %>
+    <div class = "input"><div class = "label">Start Date:</div><div class = "field"><%= f.date_select :start_date, :default => Date.today %></div></div>
+    <div class = "input"><div class = "label">End Date:</div><div class = "field"><%= f.date_select :end_date, :default => Date.today.next %></div></div>
+    <div class = "input">
+      <div class = "label">Attendees:</div>
+      <div class = "field">
+        <span class = "tiny_grey">(Select multiple users by holding control)</span><br />
+        <%= select_tag 'booking[user_ids][]', options_for_select(@users.collect {|u| [ u.to_s, u.id ] }), { :multiple => true, :size => 5, :id => 'booking_users', :style => 'padding: 3px;' } %>
+      </div>
+    </div>
+    
+    <br class = "clear" />
+    
+    <%= submit_tag 'Submit' %>
+  <% end %>
+  
+  <br class = "clear" />
+</div>

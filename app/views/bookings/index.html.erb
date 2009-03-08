@@ -1,0 +1,16 @@
+<% previous_month = link_to "&lt;&lt; #{Date::MONTHNAMES[@previous[:month]]}", :action => 'index', :month => @previous[:month], :year => @previous[:year] %>
+<% next_month     = link_to "#{Date::MONTHNAMES[@next[:month]]} &gt;&gt;", :action => 'index', :month => @next[:month], :year => @next[:year] %>
+
+<%=
+  calendar(:year => @year, :month => @month,  :abbrev => (0..-1), :previous_month_text => previous_month, :next_month_text => next_month) do |d|
+    day_display = d.mday.to_s
+    day_display += "<br /><ul>#{@booked_days_to_users_attending[d].collect {|u| "<li>#{u}</li>"}.join ''}</ul>" if @booked_days_to_users_attending[d]
+    [ day_display,
+      { :class => @booked_days_to_users_attending[d] ? 'specialDay' : 'day' }
+    ]
+  end
+%>
+
+<br class = "clear" />
+
+<%= render :partial => 'form' %>
